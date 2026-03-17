@@ -40,11 +40,19 @@ const AboutMeSection = () => {
       <div className="max-w-6xl mx-auto flex flex-col xl:flex-row gap-12 items-center xl:items-start">
         {/* Profile image */}
         <div className="flex-shrink-0">
+          {/* Small screens: round avatar */}
           <img
             src={purpleDragon}
             alt="Profile avatar"
             loading="lazy"
-            className="w-48 h-48 xl:w-72 xl:h-[28rem] rounded-full xl:rounded-lg border-[3px] border-primary object-cover"
+            className="block xl:hidden w-48 h-48 rounded-full border-[3px] border-primary object-cover"
+          />
+          {/* Large screens: tall image */}
+          <img
+            src={purpleDragonBig}
+            alt="Profile avatar"
+            loading="lazy"
+            className="hidden xl:block xl:w-72 xl:h-[28rem] rounded-lg border-[3px] border-primary object-cover"
           />
         </div>
 
