@@ -1,5 +1,6 @@
 import { useState } from "react";
 import purpleDragon from "@/assets/purple-dragon.png";
+import purpleDragonBig from "@/assets/purple-dragon-big.png";
 
 const skillsText = [
   "Logical thinking",
