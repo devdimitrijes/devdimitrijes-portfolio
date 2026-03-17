@@ -15,6 +15,7 @@ const expText = [
 
 const eduText = [
   "Completed secondary technical school (electrical engineering) in Serbia",
+  "Completed a 2-week Erasmus+ program focused on 3D modeling and 3D programming",
   "Continuous learning through online courses and self-study",
 ];
 
