@@ -48,41 +48,44 @@ const AboutMeSection = () => {
         </div>
 
         {/* Cards */}
-        <div className="flex flex-col xl:flex-row gap-6 w-full xl:flex-1">
-          {cards.map((card) => (
-            <div
-              key={card.type}
-              onClick={() =>
-                setExpandedCard(expandedCard === card.type ? null : card.type)
-              }
-              className={`border-[3px] border-primary rounded-lg p-6 cursor-pointer transition-all duration-500 hover:border-primary-dark hover:bg-muted flex-1 ${
-                expandedCard === card.type ? "bg-muted" : ""
-              }`}
-            >
-              <h3 className="text-2xl font-bold text-center text-primary mb-2">
-                {card.title}
-              </h3>
+        <div className="flex flex-col xl:flex-row xl:items-start gap-6 w-full xl:flex-1">
+          {cards.map((card) => {
+            const isActive = expandedCard === card.type;
+            return (
               <div
-                className={`overflow-hidden transition-all duration-500 ${
-                  expandedCard === card.type
-                    ? "max-h-96 opacity-100 mt-4"
-                    : "max-h-0 opacity-0"
+                key={card.type}
+                onClick={() =>
+                  setExpandedCard(isActive ? null : card.type)
+                }
+                className={`border-[3px] border-primary rounded-lg p-6 cursor-pointer transition-colors duration-300 hover:border-primary-dark hover:bg-muted xl:w-1/3 ${
+                  isActive ? "bg-muted" : ""
                 }`}
               >
-                <ul className="space-y-2">
-                  {card.items.map((item, i) => (
-                    <li
-                      key={i}
-                      className="text-muted-foreground text-sm leading-relaxed flex gap-2"
-                    >
-                      <span className="text-primary">•</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="text-2xl font-bold text-center text-primary mb-2">
+                  {card.title}
+                </h3>
+                <div
+                  className={`overflow-hidden transition-all duration-500 ${
+                    isActive
+                      ? "max-h-96 opacity-100 mt-4"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <ul className="space-y-2">
+                    {card.items.map((item, i) => (
+                      <li
+                        key={i}
+                        className="text-muted-foreground text-sm leading-relaxed flex gap-2"
+                      >
+                        <span className="text-primary">•</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
